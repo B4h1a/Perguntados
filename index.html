@@ -1,0 +1,190 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#100b2e">
+    <meta name="description" content="Teste seus conhecimentos sobre os anos 80 e 90!">
+    <title>Perguntados | Especial Anos 80 e 90</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="background-effects" aria-hidden="true">
+        <div class="grid-floor"></div>
+        <div class="star star1">✦</div>
+        <div class="star star2">✧</div>
+        <div class="star star3">✦</div>
+        <div class="star star4">✧</div>
+    </div>
+
+    <main class="container">
+
+        <header class="topbar">
+            <div class="brand">
+                <span class="brand-icon">★</span>
+                <span>PERGUNTADOS</span>
+            </div>
+            <span class="era-badge">EDIÇÃO 80s / 90s</span>
+        </header>
+
+        <!-- TELA INICIAL -->
+        <section id="startScreen" class="screen start-screen">
+            <div class="hero">
+                <div class="cassette" aria-hidden="true">♫</div>
+                <p class="eyebrow">PREPARE-SE PARA VOLTAR NO TEMPO</p>
+
+                <h1>
+                    ESPECIAL
+                    <span class="title-pink">ANOS 80</span>
+                    <span class="title-blue">E 90</span>
+                </h1>
+
+                <p class="hero-description">
+                    Música, filmes, games e curiosidades de duas décadas inesquecíveis!
+                </p>
+
+                <div class="stats-preview">
+                    <div>
+                        <span class="preview-icon">❓</span>
+                        <strong>21</strong>
+                        <small>PERGUNTAS</small>
+                    </div>
+                    <div>
+                        <span class="preview-icon">🎯</span>
+                        <strong>6</strong>
+                        <small>CATEGORIAS</small>
+                    </div>
+                    <div>
+                        <span class="preview-icon">🏆</span>
+                        <strong>2100</strong>
+                        <small>PONTOS MÁX.</small>
+                    </div>
+                </div>
+
+                <label for="playerName" class="name-label">QUAL É O SEU NOME?</label>
+                <input
+                    type="text"
+                    id="playerName"
+                    maxlength="20"
+                    placeholder="Digite seu nome..."
+                    autocomplete="given-name"
+                >
+
+                <button id="startButton" class="btn btn-primary">
+                    COMEÇAR JOGO <span>▶</span>
+                </button>
+
+                <p class="hint">21 PERGUNTAS • 15 SEGUNDOS POR RODADA</p>
+            </div>
+        </section>
+
+        <!-- TELA DO JOGO -->
+        <section id="gameScreen" class="screen game-screen" hidden>
+            <div class="game-info">
+                <div class="player-info">
+                    <span class="pixel-avatar">👾</span>
+                    <div>
+                        <small>JOGADOR</small>
+                        <strong id="displayName">Jogador</strong>
+                    </div>
+                </div>
+
+                <div class="score-info">
+                    <small>PONTUAÇÃO</small>
+                    <strong id="score">0</strong>
+                </div>
+            </div>
+
+            <div class="progress-section">
+                <div class="progress-labels">
+                    <span id="questionCounter">PERGUNTA 1 DE 21</span>
+                    <span id="progressPercent">5%</span>
+                </div>
+                <div class="progress-track">
+                    <div id="progressBar" class="progress-bar"></div>
+                </div>
+            </div>
+
+            <div class="category-row">
+                <span id="categoryBadge" class="category-badge">🎵 MÚSICA</span>
+
+                <div id="timerBox" class="timer-box">
+                    <span>⏱</span>
+                    <strong id="timer">15</strong>
+                    <small>SEG</small>
+                </div>
+            </div>
+
+            <article class="question-card">
+                <div class="question-number" id="questionNumber">QUESTÃO 01</div>
+                <h2 id="questionText">Carregando pergunta...</h2>
+
+                <div id="answers" class="answers-grid"></div>
+
+                <div id="feedback" class="feedback" role="status" aria-live="polite"></div>
+
+                <button id="nextButton" class="btn btn-primary next-button" hidden>
+                    PRÓXIMA PERGUNTA →
+                </button>
+            </article>
+
+            <p class="game-footer">★ CADA RESPOSTA CERTA VALE 100 PONTOS ★</p>
+        </section>
+
+        <!-- TELA FINAL -->
+        <section id="resultScreen" class="screen result-screen" hidden>
+            <div class="result-card">
+                <div id="resultIcon" class="result-icon">🏆</div>
+                <p class="eyebrow">FIM DE JOGO!</p>
+                <h1 id="resultTitle">MANDOU BEM!</h1>
+                <p id="resultMessage" class="result-message"></p>
+
+                <div class="final-score-box">
+                    <small>SUA PONTUAÇÃO</small>
+                    <strong id="finalScore">0</strong>
+                    <span> PONTOS</span>
+                </div>
+
+                <div class="result-stats">
+                    <div>
+                        <strong id="correctCount">0</strong>
+                        <span>ACERTOS</span>
+                    </div>
+                    <div>
+                        <strong id="wrongCount">0</strong>
+                        <span>ERROS</span>
+                    </div>
+                    <div>
+                        <strong id="accuracy">0%</strong>
+                        <span>APROVEITAMENTO</span>
+                    </div>
+                </div>
+
+                <div class="result-actions">
+                    <button id="restartButton" class="btn btn-primary">
+                        ↻ JOGAR NOVAMENTE
+                    </button>
+                    <button id="homeButton" class="btn btn-secondary">
+                        VOLTAR AO INÍCIO
+                    </button>
+                </div>
+
+                <p class="result-footer">FEITO PARA QUEM TEM SAUDADE DESSA ÉPOCA ✦</p>
+            </div>
+        </section>
+
+        <footer class="site-footer">
+            <span>PERGUNTADOS © 2026</span>
+            <span>MADE WITH ♥ & NOSTALGIA</span>
+        </footer>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
